@@ -1,0 +1,26 @@
+.admin-menu {
+    background-color: #444;
+    padding: 0.5rem 1rem;
+}
+
+.admin-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.admin-menu li {
+    margin-right: 1rem;
+}
+
+.admin-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.admin-menu li a:hover {
+    color: #ddd;
+}

@@ -1,0 +1,102 @@
+/* ===== SECTION FACTURE ===== */
+.invoice-section {
+  padding: 4rem 2rem;
+  background-color: var(--light-color, #f5f5f5);
+}
+
+.invoice-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--white, #fff);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* TITRES */
+.invoice-section h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--primary-color, #2e7d32);
+  margin-bottom: 1rem;
+}
+
+.invoice-section h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color, #2e7d32);
+  margin: 1.5rem 0 0.5rem;
+}
+
+/* INFORMATIONS DE FACTURATION */
+.invoice-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color, #424242);
+  margin-bottom: 0.5rem;
+}
+
+/* TABLEAU DES PRODUITS */
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.invoice-table thead {
+  background-color: var(--primary-color, #2e7d32);
+  color: var(--white, #fff);
+}
+
+.invoice-table thead th {
+  padding: 0.75rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.invoice-table tbody td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+/* TOTAL */
+.invoice-section h3 {
+  text-align: right;
+  font-size: 1.5rem;
+  color: var(--primary-color, #2e7d32);
+  margin-top: 1rem;
+}
+
+/* BOUTON DE TELECHARGEMENT */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color, #2e7d32);
+  color: var(--white, #fff);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.btn:hover {
+  background-color: var(--primary-light, #4caf50);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .invoice-section .container {
+    padding: 1rem;
+  }
+  
+  .invoice-section h1 {
+    font-size: 2rem;
+  }
+  
+  .invoice-table thead th,
+  .invoice-table tbody td {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,42 @@
+.key-figures {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.key-figures h2 {
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+
+.figures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.figure-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem 1rem;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.figure-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  display: inline-block;
+  margin-right: 0.3rem;
+}
+
+.figure-card p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}

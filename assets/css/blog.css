@@ -1,0 +1,238 @@
+/* Styles généraux pour la page Blog */
+.blog-page {
+  padding: 4rem 2rem;
+  background-color: var(--light-color);
+}
+
+.blog-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Titre principal */
+.blog-page h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+/* Grille des articles */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Carte Article */
+.article-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Section d'affichage du média (image, vidéo ou texte) */
+.article-media {
+  position: relative;
+  overflow: hidden;
+  height: 250px; /* Hauteur adaptée selon vos besoins */
+  background-color: #000; /* Couleur de fond en cas de chargement */
+}
+
+/* Pour vidéo ou image */
+.article-media video,
+.article-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.article-media:hover video,
+.article-media:hover img {
+  transform: scale(1.05);
+}
+
+/* Option pour Média Texte : style différent pour les articles sans image/vidéo */
+.article-media.text-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #f4f4f4;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Date affichée sur le média */
+.article-date {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--secondary-color);
+  color: var(--white);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  z-index: 2;
+}
+
+.article-date .day {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.article-date .month {
+  text-transform: uppercase;
+}
+
+/* Contenu de l'article */
+.article-content {
+  padding: 1.5rem;
+}
+
+.article-content h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.article-excerpt {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Lien "Lire l'article" */
+.read-more {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  color: var(--primary-color);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: var(--dark-color);
+  color: var(--white);
+  padding: 3rem 2rem 1rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-col h3 {
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-col h3:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--secondary-color);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+  color: rgba(255,255,255,0.8);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+  color: var(--secondary-color);
+  padding-left: 5px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: var(--transition);
+}
+
+.social-icons a:hover {
+  background: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-family: inherit;
+}
+
+.newsletter-form button {
+  background: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  padding: 0 1.5rem;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.newsletter-form button:hover {
+  background: #e65100;
+}
+
+.copyright {
+  text-align: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+}

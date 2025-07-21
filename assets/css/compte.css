@@ -1,0 +1,51 @@
+/* ===== SECTION COMPTE (Mon compte) ===== */
+.account-section {
+  padding: 4rem 2rem;
+  background-color: var(--light-color, #f5f5f5);
+}
+
+.account-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--white, #fff);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.account-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color, #2e7d32);
+}
+
+.account-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color, #263238);
+}
+
+/* ===== ACTIONS DU COMPTE ===== */
+.account-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.account-actions .btn-submit {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary-color, #2e7d32);
+  color: var(--white, #fff);
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.account-actions .btn-submit:hover {
+  background-color: var(--primary-light, #4caf50);
+}

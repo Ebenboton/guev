@@ -1,0 +1,63 @@
+.testimonials {
+  background-color: var(--light-color);
+  padding: 4rem 0;
+}
+
+.testimonials .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviews-list {
+  width: 100%;
+  max-width: 800px;
+}
+
+.reviews-list h3 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.avis-card {
+  background: var(--white);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.avis-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.avis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.avis-header h4 {
+  color: var(--primary-color);
+}
+
+.avis-rating {
+  color: var(--secondary-color);
+}
+
+.avis-comment {
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.avis-date {
+  display: block;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #757575;
+}

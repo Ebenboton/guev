@@ -1,0 +1,156 @@
+/* ===== HEADER ADMIN ===== (inspiré du header public) */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+/* Logo - mêmes propriétés que le public */
+.admin-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1001;
+}
+
+.admin-logo {
+  width: 50px; /* Même taille que le public */
+  height: 50px;
+  border-radius: 50%; /* Effet rond identique */
+  margin-right: 1rem;
+  object-fit: contain;
+}
+
+.admin-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Navigation admin - style similaire au public */
+.admin-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.admin-nav a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.admin-nav a:hover,
+.admin-nav a.active {
+  color: #4CAF50; /* Même vert que le public */
+}
+
+.admin-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4CAF50;
+  transition: width 0.3s ease;
+}
+
+.admin-nav a:hover::after,
+.admin-nav a.active::after {
+  width: 100%;
+}
+
+/* Boutons admin - style cohérent */
+.admin-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  z-index: 1001;
+}
+
+.admin-logout-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #4CAF50;
+  border-radius: 20px; /* Même arrondi que le public */
+  background-color: transparent;
+  color: #4CAF50;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.admin-logout-btn:hover {
+  background-color: #4CAF50;
+  color: #ffffff;
+}
+
+/* Version mobile */
+@media (max-width: 850px) {
+  .admin-header {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+  
+  .admin-nav {
+    display: none;
+    width: 100%;
+    order: 3;
+    background-color: #ffffff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    margin-top: 1rem;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .admin-nav.active {
+    display: flex;
+  }
+  
+  .admin-nav a {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  
+  .admin-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+  }
+  
+  .admin-menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .admin-menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .admin-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .admin-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}

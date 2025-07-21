@@ -1,0 +1,132 @@
+/* ===== SECTION D'AUTHENTIFICATION ===== */
+.auth-section {
+  padding: 4rem 2rem;
+  background-color: var(--light-color, #f5f5f5);
+}
+
+.auth-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Conteneur global des formulaires */
+.auth-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ===== FORMULAIRE DE CONNEXION ===== */
+.login-form {
+  background-color: var(--white, #fff);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color, #2e7d32);
+}
+
+/* ===== FORMULAIRE D'INSCRIPTION ===== */
+.signup-form {
+  background-color: var(--white, #fff);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Note : Ce bloc est caché par défaut via le style inline dans le HTML */
+}
+
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color, #2e7d32);
+}
+
+/* ===== GROUPES DE CHAMPS ===== */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color, #333);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color, #2e7d32);
+  outline: none;
+}
+
+/* ===== BOUTONS ===== */
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--primary-color, #2e7d32);
+  border: none;
+  border-radius: 4px;
+  color: var(--white, #fff);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn-submit:hover {
+  background-color: var(--primary-light, #4caf50);
+}
+
+/* ===== MESSAGE POUR AFFICHER L'INSCRIPTION ===== */
+.toggle-signup {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.toggle-signup button {
+  background: none;
+  border: none;
+  color: var(--primary-color, #2e7d32);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+/* Styles pour la page mot de passe oublié */
+.success-message {
+    color: #28a745;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.back-to-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-to-login a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.back-to-login a:hover {
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .auth-section .container {
+    padding: 0 1rem;
+  }
+}

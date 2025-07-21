@@ -1,0 +1,172 @@
+/* ===== SECTION CONTACT ===== */
+.contact-section {
+  padding: 4rem 2rem;
+  background-color: var(--white, #fff);
+}
+
+.contact-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-section h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color, #2e7d32);
+  margin-bottom: 1rem;
+}
+
+.contact-section p {
+  font-size: 1.1rem;
+  color: var(--text-color, #424242);
+  margin-bottom: 2rem;
+}
+/* ===== SECTION COMBINÉE CONTACT ===== */
+.contact-combined {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: var(--white, #fff);
+}
+
+.contact-combined > div {
+  flex: 1;
+  min-width: 300px;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ==== Coordonnées ==== */
+/* ==== Coordonnées (Section contact-info) - Version espacée et harmonieuse ==== */
+.contact-info {
+  text-align: left;
+  padding: 2rem; /* Augmentation de l'espace intérieur */
+  background: linear-gradient(135deg, #f9f9f9, #fff);
+  border-left: 5px solid var(--primary-color, #2e7d32);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h2 {
+  font-size: 2.4rem;
+  color: var(--primary-color, #2e7d32);
+  margin-bottom: 1.5rem; /* espacement inférieur plus important */
+  border-bottom: 2px solid var(--primary-light, #4caf50);
+  padding-bottom: 0.75rem;
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  color: var(--text-color, #424242);
+  margin-bottom: 2rem; /* augmentation de l'espace entre chaque paragraphe */
+  line-height: 1.8; /* ligne plus aérée */
+}
+
+/* Conserver les icônes si utilisé */
+.contact-info p::before {
+  content: "\f095"; /* Unicode de l'icône téléphone par exemple */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: var(--primary-color, #2e7d32);
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Spécifique aux éléments avec classe */
+.contact-info p.adresse::before {
+  content: "\f015"; /* icône maison */
+}
+.contact-info p.telephone::before {
+  content: "\f095"; /* icône téléphone */
+}
+.contact-info p.email::before {
+  content: "\f0e0"; /* icône enveloppe */
+}
+.contact-info p.horaires::before {
+  content: "\f017"; /* icône horloge */
+}
+
+/* ==== Formulaire de contact ==== */
+.contact-form {
+  text-align: left;
+}
+.contact-form h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color, #2e7d32);
+  margin-bottom: 1rem;
+}
+.contact-form p {
+  font-size: 1.1rem;
+  color: var(--text-color, #424242);
+  margin-bottom: 2rem;
+}
+.contact-form form {
+  display: grid;
+  gap: 1.5rem;
+}
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+.contact-form .form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--dark-color, #263238);
+}
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+  border-color: var(--primary-color, #2e7d32);
+  outline: none;
+}
+.btn-submit {
+  padding: 1rem 2rem;
+  background-color: var(--primary-color, #2e7d32);
+  color: var(--white, #fff);
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-submit:hover {
+  background-color: var(--primary-light, #4caf50);
+}
+
+
+/* ===== SECTION GOOGLE MAP ===== */
+.map-section {
+  padding: 4rem 2rem;
+}
+
+.map-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.map-section h2 {
+  font-size: 2.2rem;
+  color: var(--primary-color, #2e7d32);
+  margin-bottom: 1.5rem;
+}
+
+.map-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow, 0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+
+

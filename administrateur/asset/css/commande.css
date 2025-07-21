@@ -1,0 +1,273 @@
+
+/* assets/css/detail-commande.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-content {
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 250px);
+    background-color: #f5f7fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #eaecef;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h1::before {
+    content: "📦";
+    font-size: 1.5rem;
+}
+
+/* Sections styling */
+.order-info, .order-items {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaecef;
+}
+
+.order-info {
+    border-left: 4px solid #3498db;
+}
+
+.order-items {
+    border-left: 4px solid #2ecc71;
+}
+
+h2 {
+    color: #34495e;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.order-info h2::before {
+    content: "ℹ️";
+}
+
+.order-items h2::before {
+    content: "🛒";
+}
+
+/* Order info grid layout */
+.order-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-group {
+    margin-bottom: 0.5rem;
+}
+
+.info-group strong {
+    color: #2d3748;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+.info-group p {
+    margin: 0;
+    color: #4a5568;
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    background: #f8fafc;
+    border-radius: 4px;
+    border-left: 3px solid #3498db;
+}
+
+/* Status badges */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-cancelled {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.payment-paid {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.payment-pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* Table styling */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+}
+
+.admin-table thead tr {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.admin-table th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.admin-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eaecef;
+    color: #4a5568;
+    vertical-align: top;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.admin-table tfoot {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.admin-table tfoot th {
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* Product image styling */
+.product-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.product-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #eaecef;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eaecef;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    border: 1px solid #ddd;
+}
+
+.btn-secondary:hover {
+    background-color: #e9ecef;
+    transform: translateY(-1px);
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .order-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

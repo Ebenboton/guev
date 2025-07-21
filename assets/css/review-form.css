@@ -1,0 +1,137 @@
+.review-form-section {
+  background-color: var(--white);
+  padding: 4rem 0;
+}
+
+.review-form-section h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: var(--text-color);
+}
+
+.review-form {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  color: #ddd;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-right: 0.5rem;
+}
+
+.rating input:checked ~ label,
+.rating input:hover ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: var(--secondary-color);
+}
+
+.consent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.consent input {
+  width: auto;
+}
+
+.submit-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  grid-column: span 2;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-light);
+}
+
+.login-message {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.login-message a {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.thank-you-message {
+  text-align: center;
+  padding: 2rem;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 2rem;
+  display: none;
+}
+
+.thank-you-message i {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.thank-you-message h3 {
+  color: var(--primary-color);
+}

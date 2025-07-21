@@ -1,0 +1,148 @@
+/* =============================================
+   INDEX ADMIN DASHBOARD - STYLES HORIZONTAUX
+   ============================================= */
+
+:root {
+    --indexAdmin-primary: #2c3e50;
+    --indexAdmin-secondary: #34495e;
+    --indexAdmin-accent: #3498db;
+    --indexAdmin-light: #ecf0f1;
+    --indexAdmin-dark: #2c3e50;
+    --indexAdmin-success: #2ecc71;
+    --indexAdmin-danger: #e74c3c;
+    --indexAdmin-warning: #f39c12;
+    --indexAdmin-info: #1abc9c;
+    --indexAdmin-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --indexAdmin-transition: all 0.3s ease;
+}
+
+/* Conteneur principal */
+.indexAdmin-main {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+    padding: 2rem 0;
+}
+
+.indexAdmin-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+}
+
+/* Titre */
+.indexAdmin-main h1 {
+    color: var(--indexAdmin-primary);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Conteneur des cartes en horizontal */
+.indexAdmin-cards {
+    display: flex;
+    flex-wrap: nowrap; /* Empêche le retour à la ligne */
+    gap: 1.5rem;
+    padding-bottom: 1rem; /* Espace pour l'ombre */
+    overflow-x: auto; /* Défilement horizontal si trop de cartes */
+    scrollbar-width: thin; /* Pour Firefox */
+    scrollbar-color: var(--indexAdmin-accent) var(--indexAdmin-light);
+}
+
+/* Style de la scrollbar pour WebKit (Chrome, Safari) */
+.indexAdmin-cards::-webkit-scrollbar {
+    height: 8px;
+}
+
+.indexAdmin-cards::-webkit-scrollbar-track {
+    background: var(--indexAdmin-light);
+}
+
+.indexAdmin-cards::-webkit-scrollbar-thumb {
+    background-color: var(--indexAdmin-accent);
+    border-radius: 4px;
+}
+
+/* Cartes individuelles */
+.indexAdmin-card {
+    flex: 0 0 auto; /* Empêche le redimensionnement */
+    width: 250px; /* Largeur fixe pour chaque carte */
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--indexAdmin-shadow);
+    transition: var(--indexAdmin-transition);
+    border-left: 4px solid var(--indexAdmin-accent);
+    text-align: center;
+}
+
+.indexAdmin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.indexAdmin-card h2 {
+    color: var(--indexAdmin-secondary);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    white-space: nowrap; /* Empêche le texte de se casser */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.indexAdmin-card p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--indexAdmin-primary);
+    margin: 1rem 0 0;
+}
+
+/* Messages d'erreur */
+.indexAdmin-error {
+    color: var(--indexAdmin-danger);
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .indexAdmin-card {
+        width: 220px; /* Légèrement plus étroit sur mobile */
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .indexAdmin-card {
+        width: 200px;
+        padding: 1rem;
+    }
+    
+    .indexAdmin-card h2 {
+        font-size: 1.1rem;
+    }
+    
+    .indexAdmin-card p {
+        font-size: 1.8rem;
+    }
+}
+
+/* Animation */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.indexAdmin-card {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Délais d'animation pour chaque carte */
+.indexAdmin-card:nth-child(1) { animation-delay: 0.1s; }
+.indexAdmin-card:nth-child(2) { animation-delay: 0.2s; }
+.indexAdmin-card:nth-child(3) { animation-delay: 0.3s; }
+.indexAdmin-card:nth-child(4) { animation-delay: 0.4s; }
