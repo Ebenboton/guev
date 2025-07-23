@@ -1,3 +1,7 @@
+<?php
+//session_start();
+
+?>
 <header class="header">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <div class="header-container">
@@ -16,21 +20,25 @@
         </button>
         
         <nav class="main-nav">
-    <ul>
-        <?php
-        // Récupère le nom de la page actuelle
-        $current_page = basename($_SERVER['PHP_SELF']);
-        // Liste des pages qui doivent activer l'onglet Blog
-        $blog_pages = ['blog.php', 'article.php', 'categorie-blog.php'];
-        ?>
+            <ul>
+                <?php
+                // Récupère le nom de la page actuelle
+                $current_page = basename($_SERVER['PHP_SELF']);
+                // Liste des pages qui doivent activer l'onglet Blog
+                $blog_pages = ['blog.php', 'article.php', 'categorie-blog.php'];
+                ?>
+                
+                <li><a href="index.php" class="<?= ($current_page == 'index.php') ? 'active' : '' ?>">Accueil</a></li>
+                <li><a href="boutique.php" class="<?= ($current_page == 'boutique.php') ? 'active' : '' ?>">Nos produits</a></li>
+                <li><a href="apropos.php" class="<?= ($current_page == 'apropos.php') ? 'active' : '' ?>">À propos</a></li>
+                <li><a href="contact.php" class="<?= ($current_page == 'contact.php') ? 'active' : '' ?>">Contact</a></li>
+                <li><a href="blog.php" class="<?= (in_array($current_page, $blog_pages)) ? 'active' : '' ?>">Blog</a></li>
+                <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin'): ?>
+                    <li><a href="/guev/administrateur/index.php" class="<?= (strpos($_SERVER['REQUEST_URI'], '/guev/administrateur/') !== false) ? 'active' : '' ?>">Dashboard</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
         
-        <li><a href="index.php" class="<?= ($current_page == 'index.php') ? 'active' : '' ?>">Accueil</a></li>
-        <li><a href="boutique.php" class="<?= ($current_page == 'boutique.php') ? 'active' : '' ?>">Nos produits</a></li>
-        <li><a href="apropos.php" class="<?= ($current_page == 'apropos.php') ? 'active' : '' ?>">À propos</a></li>
-        <li><a href="contact.php" class="<?= ($current_page == 'contact.php') ? 'active' : '' ?>">Contact</a></li>
-        <li><a href="blog.php" class="<?= (in_array($current_page, $blog_pages)) ? 'active' : '' ?>">Blog</a></li>
-    </ul>
-</nav>
         <div class="user-actions">
             <?php if(isset($_SESSION['user'])): ?>
                 <a href="compte.php" class="login-btn">Mon compte</a>
@@ -45,7 +53,6 @@
             </a>
         </div>
     </div>
-    
 </header>
 
 <style>

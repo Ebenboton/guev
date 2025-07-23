@@ -7,14 +7,15 @@
     <span class="admin-title">ADMINISTRATION</span>
   </div>
 
-  <button class="admin-menu-toggle" id="adminMenuToggle">
+  <button class="admin-menu-toggle" id="adminMenuToggle" aria-label="Menu">
     <span></span>
     <span></span>
     <span></span>
   </button>
 
-  <nav class="admin-menu">
-    <ul>
+  <div class="header-content" id="headerContent">
+    <nav class="admin-menu">
+      <ul>
         <li><a href="../index.php">Accueil</a></li>
         <li><a href="/guev/administrateur/index.php">Dashboard</a></li>
         <li><a href="/guev/administrateur/produits/index.php">Produits</a></li>
@@ -24,28 +25,29 @@
         <li><a href="/guev/administrateur/avis/index.php">Avis</a></li>
         <li><a href="/guev/administrateur/discussion.php">Discussion</a></li>
         <li><a href="/guev/administrateur/parametres/index.php">Paramètres</a></li>
-    </ul>
-</nav>
+      </ul>
+    </nav>
 
-   <div class="header-actions">
-        <a href="/guev/deconnexion.php" class="logout-btn">Déconnexion</a>
+    <div class="header-actions">
+      <a href="/guev/deconnexion.php" class="logout-btn">Déconnexion</a>
     </div>
-    
+  </div>
 </header>
 
 <script>
-  // Script pour le menu mobile
-  const adminMenuToggle = document.getElementById('adminMenuToggle');
-  const adminNav = document.getElementById('adminNav');
-  
-  adminMenuToggle.addEventListener('click', () => {
-    adminMenuToggle.classList.toggle('active');
-    adminNav.classList.toggle('active');
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('adminMenuToggle');
+    const headerContent = document.getElementById('headerContent');
+    
+    toggleButton.addEventListener('click', function() {
+      this.classList.toggle('active');
+      headerContent.classList.toggle('active');
+    });
   });
 </script>
 
 <style>
-/* ===== HEADER ADMIN OPTIMISÉ ===== */
+/* ===== HEADER ADMIN EXISTANT - SEUL LE RESPONSIVE EST MODIFIE ===== */
 .admin-header {
   display: flex;
   justify-content: space-between;
@@ -77,12 +79,12 @@
   color: #2c3e50;
 }
 
-.admin-nav {
+.admin-menu {
   display: flex;
   gap: 1.2rem;
 }
 
-.admin-nav a {
+.admin-menu a {
   color: #555;
   font-weight: 500;
   padding: 0.4rem 0;
@@ -90,7 +92,7 @@
   font-size: 0.95rem;
 }
 
-.admin-nav a::after {
+.admin-menu a::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -101,17 +103,16 @@
   transition: width 0.25s;
 }
 
-.admin-nav a:hover::after,
-.admin-nav a.active::after {
+.admin-menu a:hover::after,
+.admin-menu a.active::after {
   width: 100%;
 }
 
-.admin-actions {
-  display: flex;
-  gap: 0.8rem;
+.header-actions {
+  margin-left: 1rem;
 }
 
-.admin-logout-btn {
+.logout-btn {
   background: #27ae60;
   color: white;
   padding: 0.4rem 1.2rem;
@@ -120,82 +121,100 @@
   transition: all 0.2s;
 }
 
-.admin-logout-btn:hover {
+.logout-btn:hover {
   background: #219653;
   transform: translateY(-1px);
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 992px) {
-  .admin-header {
-    padding: 0.8rem 1.5rem;
-  }
+/* ===== NOUVEAU CODE RESPONSIVE SEULEMENT ===== */
+.admin-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
 }
 
-@media (max-width: 768px) {
-  .admin-header {
-    flex-wrap: wrap;
-    padding: 0.8rem 1rem;
-    gap: 1rem;
-  }
-  
-  .admin-nav {
-    order: 3;
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 0.5rem;
-  }
-  
-  .admin-nav.active {
+.admin-menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #333;
+  transition: all 0.3s;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .admin-menu-toggle {
     display: flex;
   }
   
-  .admin-nav a {
-    padding: 0.8rem;
+  .header-content {
+    position: fixed;
+    top: 68px; /* Hauteur du header */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: none;
+  }
+  
+  .header-content.active {
+    display: flex;
+  }
+  
+  .admin-menu {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+  
+  .admin-menu li {
+    width: 100%;
     border-bottom: 1px solid #eee;
   }
   
-  .admin-menu-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 20px;
+  .admin-menu a {
+    display: block;
+    padding: 0.8rem 0;
   }
   
-  .admin-menu-toggle span {
+  .admin-menu a::after {
+    display: none;
+  }
+  
+  .header-actions {
+    margin: 1rem 0 0 0;
+    width: 100%;
+  }
+  
+  .logout-btn {
     display: block;
-    height: 2px;
-    background: #333;
-    transition: all 0.3s;
+    text-align: center;
   }
   
   .admin-menu-toggle.active span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
   }
+  
   .admin-menu-toggle.active span:nth-child(2) {
     opacity: 0;
   }
+  
   .admin-menu-toggle.active span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
-  }
-}
-
-@media (max-width: 480px) {
-  .admin-logo {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .admin-title {
-    font-size: 1rem;
-  }
-  
-  .admin-logout-btn {
-    padding: 0.4rem 1rem;
-    font-size: 0.85rem;
   }
 }
 </style>

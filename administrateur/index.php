@@ -3,7 +3,7 @@ session_start();
 require_once 'includes/db.php';
 
 // Définir les chemins de base
-$lienLogo = "./assets/";  // Note: changé de 'asset' à 'assets' (plus standard)
+$lienLogo = "./asset/";  
 $adminBase = "./";
 define('ASSETS_PATH', $adminBase . 'assets/');  // Définition de constante pour les assets
 
@@ -22,7 +22,6 @@ if (empty($_SESSION['admin']['role'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administration - Dashboard</title>
-    <!-- Chemins CSS corrigés -->
     <link rel="stylesheet" href="/guev/administrateur/asset/css/admin.css">
     <link rel="stylesheet" href="/guev/administrateur/asset/css/header1.css">
     <link rel="stylesheet" href="/guev/administrateur/asset/css/menu.css">
@@ -32,7 +31,7 @@ if (empty($_SESSION['admin']['role'])) {
     <?php 
     // Inclusion des composants avec vérification
     @include 'includes/header.php'; 
-    @include 'includes/menu.php'; 
+   
     ?>
 
     <main class="indexAdmin-main">
