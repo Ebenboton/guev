@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : ven. 23 mai 2025 à 18:24
--- Version du serveur : 9.1.0
--- Version de PHP : 8.4.0
+-- Hôte : 127.0.0.1
+-- Généré le : lun. 02 fév. 2026 à 00:38
+-- Version du serveur : 10.4.32-MariaDB
+-- Version de PHP : 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,15 +27,13 @@ SET time_zone = "+00:00";
 -- Structure de la table `articles`
 --
 
-DROP TABLE IF EXISTS `articles`;
-CREATE TABLE IF NOT EXISTS `articles` (
-  `id_article` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `articles` (
+  `id_article` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `media` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_article`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -43,18 +41,15 @@ CREATE TABLE IF NOT EXISTS `articles` (
 -- Structure de la table `avis`
 --
 
-DROP TABLE IF EXISTS `avis`;
-CREATE TABLE IF NOT EXISTS `avis` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `avis` (
+  `id` int(11) NOT NULL,
   `nom` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `produit_id` int NOT NULL,
-  `note` int NOT NULL,
+  `produit_id` int(11) NOT NULL,
+  `note` int(11) NOT NULL,
   `commentaire` text NOT NULL,
-  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `produit_id` (`produit_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `date_creation` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -62,23 +57,20 @@ CREATE TABLE IF NOT EXISTS `avis` (
 -- Structure de la table `commande`
 --
 
-DROP TABLE IF EXISTS `commande`;
-CREATE TABLE IF NOT EXISTS `commande` (
-  `id_commande` int NOT NULL AUTO_INCREMENT,
-  `id_user` int DEFAULT NULL,
+CREATE TABLE `commande` (
+  `id_commande` int(11) NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
   `total` decimal(10,2) DEFAULT NULL,
-  `billing_nom` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `billing_email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `billing_adresse` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `billing_ville` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `billing_codepostal` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `payment_method` enum('moov','mtn','celtis','carte_bancaire') COLLATE utf8mb4_general_ci NOT NULL,
-  `payment_status` enum('pending','paid','failed') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'pending',
-  `status` enum('en_attente','en_cours','expédiée','livrée','annulée') COLLATE utf8mb4_general_ci DEFAULT 'en_attente',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_commande`),
-  KEY `id_user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `billing_nom` varchar(255) NOT NULL,
+  `billing_email` varchar(255) NOT NULL,
+  `billing_adresse` varchar(255) NOT NULL,
+  `billing_ville` varchar(100) NOT NULL,
+  `billing_codepostal` varchar(20) NOT NULL,
+  `payment_method` enum('moov','mtn','celtis','carte_bancaire') NOT NULL,
+  `payment_status` enum('pending','paid','failed') NOT NULL DEFAULT 'pending',
+  `status` enum('en_attente','en_cours','expédiée','livrée','annulée') DEFAULT 'en_attente',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `commande`
@@ -93,16 +85,14 @@ INSERT INTO `commande` (`id_commande`, `id_user`, `total`, `billing_nom`, `billi
 -- Structure de la table `contact`
 --
 
-DROP TABLE IF EXISTS `contact`;
-CREATE TABLE IF NOT EXISTS `contact` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `sujet` varchar(255) NOT NULL,
   `message` text NOT NULL,
-  `date_envoi` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `date_envoi` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `contact`
@@ -117,14 +107,11 @@ INSERT INTO `contact` (`id`, `nom`, `email`, `sujet`, `message`, `date_envoi`) V
 -- Structure de la table `newsletter`
 --
 
-DROP TABLE IF EXISTS `newsletter`;
-CREATE TABLE IF NOT EXISTS `newsletter` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `newsletter` (
+  `id` int(11) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `newsletter`
@@ -140,17 +127,13 @@ INSERT INTO `newsletter` (`id`, `email`, `created_at`) VALUES
 -- Structure de la table `panier`
 --
 
-DROP TABLE IF EXISTS `panier`;
-CREATE TABLE IF NOT EXISTS `panier` (
-  `id_panier` int NOT NULL AUTO_INCREMENT,
-  `id_commande` int DEFAULT NULL,
-  `id_produit` int DEFAULT NULL,
-  `quantite` int DEFAULT NULL,
-  `prix` int DEFAULT NULL,
-  PRIMARY KEY (`id_panier`),
-  KEY `id_commande` (`id_commande`),
-  KEY `id_produit` (`id_produit`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `panier` (
+  `id_panier` int(11) NOT NULL,
+  `id_commande` int(11) DEFAULT NULL,
+  `id_produit` int(11) DEFAULT NULL,
+  `quantite` int(11) DEFAULT NULL,
+  `prix` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -158,15 +141,13 @@ CREATE TABLE IF NOT EXISTS `panier` (
 -- Structure de la table `parametres`
 --
 
-DROP TABLE IF EXISTS `parametres`;
-CREATE TABLE IF NOT EXISTS `parametres` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `parametres` (
+  `id` int(11) NOT NULL,
   `site_title` varchar(255) NOT NULL,
   `site_email` varchar(255) NOT NULL,
   `site_description` text NOT NULL,
-  `logo` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `logo` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -174,15 +155,12 @@ CREATE TABLE IF NOT EXISTS `parametres` (
 -- Structure de la table `payments`
 --
 
-DROP TABLE IF EXISTS `payments`;
-CREATE TABLE IF NOT EXISTS `payments` (
-  `id_payment` int NOT NULL AUTO_INCREMENT,
-  `id_commande` int DEFAULT NULL,
-  `payment_method` enum('carte_bancaire','mobile_money','moov_money') COLLATE utf8mb4_general_ci NOT NULL,
-  `payment_status` enum('en_attente','payé','échoué') COLLATE utf8mb4_general_ci DEFAULT 'en_attente',
-  `payment_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_payment`),
-  KEY `id_commande` (`id_commande`)
+CREATE TABLE `payments` (
+  `id_payment` int(11) NOT NULL,
+  `id_commande` int(11) DEFAULT NULL,
+  `payment_method` enum('carte_bancaire','mobile_money','moov_money') NOT NULL,
+  `payment_status` enum('en_attente','payé','échoué') DEFAULT 'en_attente',
+  `payment_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -191,18 +169,26 @@ CREATE TABLE IF NOT EXISTS `payments` (
 -- Structure de la table `produits`
 --
 
-DROP TABLE IF EXISTS `produits`;
-CREATE TABLE IF NOT EXISTS `produits` (
-  `id_produit` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text COLLATE utf8mb4_general_ci,
+CREATE TABLE `produits` (
+  `id_produit` int(11) NOT NULL,
+  `nom` varchar(150) NOT NULL,
+  `description` text DEFAULT NULL,
   `prix` decimal(10,2) NOT NULL,
-  `quantiteEnStock` int DEFAULT '0',
-  `image` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `categorie` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_produit`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `quantiteEnStock` int(11) DEFAULT 0,
+  `image` varchar(255) DEFAULT NULL,
+  `categorie` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `produits`
+--
+
+INSERT INTO `produits` (`id_produit`, `nom`, `description`, `prix`, `quantiteEnStock`, `image`, `categorie`, `created_at`) VALUES
+(11, 'fout', 'un fout', 150000.00, 10, '6830c22538d0e.jpg', 'pain', '2025-05-23 18:44:53'),
+(12, 'creporte', 'un creporte moderne', 3000.00, 24, '6830c28212baf.jpg', 'classique', '2025-05-23 18:46:26'),
+(13, 'marmite', 'une marmite', 4500.00, 15, '6830c2b8a4ab5.jpg', 'prepare', '2025-05-23 18:47:20'),
+(14, 'hum', 'un humm', 20.00, 10, '6830c320b4307.jpg', 'un hum', '2025-05-23 18:49:04');
 
 -- --------------------------------------------------------
 
@@ -210,24 +196,157 @@ CREATE TABLE IF NOT EXISTS `produits` (
 -- Structure de la table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id_user` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `role` enum('client','admin') COLLATE utf8mb4_general_ci DEFAULT 'client',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_user`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `users` (
+  `id_user` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` enum('client','admin') DEFAULT 'client',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id_user`, `name`, `email`, `password`, `role`, `created_at`) VALUES
-(12, 'zaka', 'zak@gmail.com', '$2y$12$Zm0Kzm3acAxi.gWZ/MElvOWkAlYvA5EdkExCkD50eVJKCGPqy/SIS', 'admin', '2025-05-23 11:20:02');
+(12, 'zaka', 'zakalassissou@gmail.com', '$2y$12$Zm0Kzm3acAxi.gWZ/MElvOWkAlYvA5EdkExCkD50eVJKCGPqy/SIS', 'admin', '2025-05-23 11:20:02'),
+(16, 'toni', 'toni@gmail.com', '$2y$12$ccb/i0a3A79C00iN1FIWv.ihAy8QQArKMay2Ohr8XCL7WcOCn9My.', 'client', '2025-06-05 13:39:52');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `articles`
+--
+ALTER TABLE `articles`
+  ADD PRIMARY KEY (`id_article`);
+
+--
+-- Index pour la table `avis`
+--
+ALTER TABLE `avis`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `produit_id` (`produit_id`);
+
+--
+-- Index pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD PRIMARY KEY (`id_commande`),
+  ADD KEY `id_user` (`id_user`);
+
+--
+-- Index pour la table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `newsletter`
+--
+ALTER TABLE `newsletter`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Index pour la table `panier`
+--
+ALTER TABLE `panier`
+  ADD PRIMARY KEY (`id_panier`),
+  ADD KEY `id_commande` (`id_commande`),
+  ADD KEY `id_produit` (`id_produit`);
+
+--
+-- Index pour la table `parametres`
+--
+ALTER TABLE `parametres`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id_payment`),
+  ADD KEY `id_commande` (`id_commande`);
+
+--
+-- Index pour la table `produits`
+--
+ALTER TABLE `produits`
+  ADD PRIMARY KEY (`id_produit`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `articles`
+--
+ALTER TABLE `articles`
+  MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `avis`
+--
+ALTER TABLE `avis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `commande`
+--
+ALTER TABLE `commande`
+  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `newsletter`
+--
+ALTER TABLE `newsletter`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `panier`
+--
+ALTER TABLE `panier`
+  MODIFY `id_panier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `parametres`
+--
+ALTER TABLE `parametres`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `produits`
+--
+ALTER TABLE `produits`
+  MODIFY `id_produit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Contraintes pour les tables déchargées

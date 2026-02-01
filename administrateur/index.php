@@ -26,83 +26,111 @@ if (empty($_SESSION['admin']['role'])) {
     <link rel="stylesheet" href="/guev/administrateur/asset/css/header1.css">
     <link rel="stylesheet" href="/guev/administrateur/asset/css/menu.css">
     <link rel="stylesheet" href="/guev/administrateur/asset/css/footer.css">
+    <style>
+        /* Style pour organiser les cartes sur deux lignes */
+        .indexAdmin-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .indexAdmin-card {
+            flex: 1;
+            min-width: 200px;
+        }
+    </style>
 </head>
 <body>
-    <?php 
-    // Inclusion des composants avec vérification
-    @include 'includes/header.php'; 
-   
-    ?>
+    <div class="main-line">
+        <?php 
+        // Inclusion des composants avec vérification
+        @include 'includes/header.php'; 
+        ?>
+    </div>
 
-    <main class="indexAdmin-main">
-        <div class="indexAdmin-container">
-            <h1>Bienvenue, <?= htmlspecialchars($_SESSION['admin']['pseudo'] ?? 'Admin') ?></h1>
-            
-            <div class="indexAdmin-cards">
-                <!-- Carte Produits -->
-                <div class="indexAdmin-card">
-                    <h2>Nombre de produits</h2>
-                    <?php
-                    try {
-                        $result = $conn->query("SELECT COUNT(*) AS total FROM produits");
-                        $data = $result->fetch_assoc();
-                        echo "<p>" . ($data['total'] ?? '0') . "</p>";
-                    } catch (Exception $e) {
-                        echo "<p class='indexAdmin-error'>N/A</p>";
-                        error_log("Erreur produits: " . $e->getMessage());
-                    }
-                    ?>
-                </div>
+    <div class="main-line">
+        <main class="indexAdmin-main">
+            <div class="indexAdmin-container">
+                <h1>Bienvenue, <?= htmlspecialchars($_SESSION['admin']['pseudo'] ?? 'Admin') ?></h1>
+                
+                <div class="indexAdmin-cards">
+                    <!-- Première ligne : Produits et Articles -->
+                    <div class="cards-row">
+                        <!-- Carte Produits -->
+                        <div class="indexAdmin-card">
+                            <h2>Nombre de produits</h2>
+                            <?php
+                            try {
+                                $result = $conn->query("SELECT COUNT(*) AS total FROM produits");
+                                $data = $result->fetch_assoc();
+                                echo "<p>" . ($data['total'] ?? '0') . "</p>";
+                            } catch (Exception $e) {
+                                echo "<p class='indexAdmin-error'>N/A</p>";
+                                error_log("Erreur produits: " . $e->getMessage());
+                            }
+                            ?>
+                        </div>
 
-                <!-- Carte Articles -->
-                <div class="indexAdmin-card">
-                    <h2>Nombre d'articles</h2>
-                    <?php
-                    try {
-                        $result = $conn->query("SELECT COUNT(*) AS total FROM articles");
-                        $data = $result->fetch_assoc();
-                        echo "<p>" . ($data['total'] ?? '0') . "</p>";
-                    } catch (Exception $e) {
-                        echo "<p class='indexAdmin-error'>N/A</p>";
-                        error_log("Erreur articles: " . $e->getMessage());
-                    }
-                    ?>
-                </div>
+                        <!-- Carte Articles -->
+                        <div class="indexAdmin-card">
+                            <h2>Nombre d'articles</h2>
+                            <?php
+                            try {
+                                $result = $conn->query("SELECT COUNT(*) AS total FROM articles");
+                                $data = $result->fetch_assoc();
+                                echo "<p>" . ($data['total'] ?? '0') . "</p>";
+                            } catch (Exception $e) {
+                                echo "<p class='indexAdmin-error'>N/A</p>";
+                                error_log("Erreur articles: " . $e->getMessage());
+                            }
+                            ?>
+                        </div>
+                    </div>
 
-                <!-- Carte Commandes -->
-                <div class="indexAdmin-card">
-                    <h2>Nombre de commandes</h2>
-                    <?php
-                    try {
-                        $result = $conn->query("SELECT COUNT(*) AS total FROM commande");
-                        $data = $result->fetch_assoc();
-                        echo "<p>" . ($data['total'] ?? '0') . "</p>";
-                    } catch (Exception $e) {
-                        echo "<p class='indexAdmin-error'>N/A</p>";
-                        error_log("Erreur commandes: " . $e->getMessage());
-                    }
-                    ?>
-                </div>
+                    <!-- Deuxième ligne : Commandes et Utilisateurs -->
+                    <div class="cards-row">
+                        <!-- Carte Commandes -->
+                        <div class="indexAdmin-card">
+                            <h2>Nombre de commandes</h2>
+                            <?php
+                            try {
+                                $result = $conn->query("SELECT COUNT(*) AS total FROM commande");
+                                $data = $result->fetch_assoc();
+                                echo "<p>" . ($data['total'] ?? '0') . "</p>";
+                            } catch (Exception $e) {
+                                echo "<p class='indexAdmin-error'>N/A</p>";
+                                error_log("Erreur commandes: " . $e->getMessage());
+                            }
+                            ?>
+                        </div>
 
-                <!-- Carte Utilisateurs -->
-                <div class="indexAdmin-card">
-                    <h2>Nombre d'utilisateurs</h2>
-                    <?php
-                    try {
-                        $result = $conn->query("SELECT COUNT(*) AS total FROM users");
-                        $data = $result->fetch_assoc();
-                        echo "<p>" . ($data['total'] ?? '0') . "</p>";
-                    } catch (Exception $e) {
-                        echo "<p class='indexAdmin-error'>N/A</p>";
-                        error_log("Erreur utilisateurs: " . $e->getMessage());
-                    }
-                    ?>
+                        <!-- Carte Utilisateurs -->
+                        <div class="indexAdmin-card">
+                            <h2>Nombre d'utilisateurs</h2>
+                            <?php 
+                            try {
+                                $result = $conn->query("SELECT COUNT(*) AS total FROM users");
+                                $data = $result->fetch_assoc();
+                                echo "<p>" . ($data['total'] ?? '0') . "</p>";
+                            } catch (Exception $e) {
+                                echo "<p class='indexAdmin-error'>N/A</p>";
+                                error_log("Erreur utilisateurs: " . $e->getMessage());
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
 
-    <?php @include 'includes/footer.php'; ?>
+        <?php @include 'includes/footer.php'; ?>
+    </div>
     
     <!-- Script JS avec chemin absolu -->
     <script src="../assets/js/admin.js"></script>

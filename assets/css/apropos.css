@@ -1,131 +1,689 @@
-/* ========================= ABOUT HERO ========================= */
-.about-hero {
-  /* Optionnel : vous pouvez remplacer l'URL par une image de fond pertinente */
-  background: url('../images/about-hero.jpg') no-repeat center center/cover;
-  padding: 6rem 0;
-  color: var(--white);
-  text-align: center;
-  position: relative;
+/* Variables de style (non-couleur) */
+:root {
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --border-radius: 12px;
 }
 
-.about-hero::after {
+/* Styles de base pour le corps et la typographie */
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  color: #343a40;
+  /* Couleur du texte sombre */
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: #343a40;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.text-success {
+  color: #28a745 !important;
+}
+
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+/* Styles pour centrer tous les titres de section */
+.section-title,
+.title,
+.partenaires-section h2,
+.priorites-guev-section h2,
+.green-cook-activities h2,
+#objectifs-green-cook-fest h2,
+#justin-hounguevou-profile h2,
+#guev-pathway h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  position: relative;
+  display: block;
+  padding-bottom: 15px;
+  color: #343a40;
+}
+
+.section-title::after,
+.title::after,
+.partenaires-section h2::after,
+.priorites-guev-section h2::after,
+.green-cook-activities h2::after,
+#objectifs-green-cook-fest h2::after,
+#justin-hounguevou-profile h2::after,
+#guev-pathway h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #28a745;
+  border-radius: 2px;
+}
+
+/* Styles des sections avec couleurs de fond spécifiques */
+section {
+  padding: 80px 0;
+}
+
+.section-guev,
+.priorites-guev-section,
+#objectifs-green-cook-fest,
+#guev-pathway {
+  background-color: #ffffff;
+}
+
+.main-section,
+.green-cook-activities,
+#justin-hounguevou-profile,
+.partenaires-section {
+  background-color: #f8f9fa;
+}
+
+/* --- */
+
+/* Section "Qui sommes-nous" */
+section {
+  padding: 4rem 0;
+}
+
+.section-title,
+h2.section-title,
+h2.fw-bold {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #14532d;
+}
+
+h5.card-title,
+.activity-number,
+.profile-name,
+.timeline-date {
+  font-weight: 700;
+  color: #14532d;
+}
+
+p {
+  font-size: 1rem;
+}
+
+/* ---------------------------
+   Image full height
+----------------------------*/
+.full-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* --- */
+
+/* Section "GUEV, un rêve" (Cards) */
+.main-section {
+  text-align: center;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cards-container .card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  padding: 35px;
+  flex: 1;
+  min-width: 280px;
+  max-width: 380px;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cards-container .card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-medium);
+  border-color: #28a745;
+}
+
+.cards-container .card-title {
+  font-size: 1.8rem;
+  color: #28a745;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.cards-container .card-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #1a7a30;
+  border-radius: 1.5px;
+}
+
+.cards-container .card-text {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+/* --- */
+
+/* Section "Nos priorités" */
+.priorites-guev-section .flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.priorites-guev-section .card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease-in-out;
+  border: none;
+  overflow: hidden;
+  position: relative;
+  padding: 30px;
+}
+
+.priorites-guev-section .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #28a745, #1a7a30);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
+}
+
+.priorites-guev-section .card:hover::before {
+  transform: scaleX(1);
+}
+
+.priorites-guev-section .card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+}
+
+.priorites-guev-section .card-title {
+  font-size: 1.6rem;
+  color: #1a7a30;
+  margin-bottom: 15px;
+}
+
+.priorites-guev-section .card-text {
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+/* --- */
+
+/* Section "Nos activités" (3 par ligne) */
+.green-cook-activities {
+  text-align: center;
+}
+
+/* Utilisation de Flexbox pour une disposition à 3 colonnes */
+.green-cook-activities .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* Surcharge les classes de Bootstrap pour forcer le layout à 3 colonnes */
+.green-cook-activities .col-md-6,
+.green-cook-activities .col-lg-3 {
+  flex: 0 0 calc(33.333% - 20px);
+  /* 3 éléments par ligne avec un espacement */
+  max-width: calc(33.333% - 20px);
+}
+
+.activity-card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  padding-top: 60px !important;
+}
+
+.activity-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-medium);
+}
+
+.activity-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Overlay sombre */
-  z-index: 1;
+  background: linear-gradient(180deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0) 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: var(--border-radius);
 }
 
-.about-hero .container {
+.activity-card:hover::before {
+  opacity: 1;
+}
+
+.activity-number {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #28a745;
+  opacity: 0.7;
+  line-height: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.activity-card:hover .activity-number {
+  top: 10px;
+  font-size: 2.8rem;
+  opacity: 1;
+  color: #1a7a30;
+}
+
+.activity-card h6 {
+  font-size: 1.25rem;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.activity-card:hover h6 {
+  color: #1a7a30 !important;
+}
+
+.activity-card p {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* --- */
+
+/* Section "Nos objectifs" */
+#objectifs-green-cook-fest {
+  text-align: center;
+}
+
+.objectives-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.objective-block {
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-medium);
+  padding: 40px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  text-align: left;
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+  border-top: 8px solid #28a745;
+  transition: all 0.4s ease-in-out;
 }
 
-.about-hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  color: var(--white);
+.objective-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(40, 167, 69, 0.05);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
 }
 
-.about-hero p {
+.objective-block:hover::before {
+  transform: scaleX(1);
+}
+
+.objective-block:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.objective-block h3 {
+  font-size: 1.8rem;
+  color: #1a7a30;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.objective-block h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #28a745;
+  border-radius: 1.5px;
+}
+
+.objective-block p {
+  color: #6c757d;
+  font-size: 1.05rem;
+}
+
+/* --- */
+
+/* Section "Qui suis-je" */
+#justin-hounguevou-profile {
+  padding: 80px 0;
+}
+
+.profile-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.profile-name {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  color: #28a745;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.profile-role {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1a7a30;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+.profile-details p {
+  color: #6c757d;
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+.profile-image-container {
+  flex-shrink: 0;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  border: 5px solid #28a745;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.profile-image-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(20%);
+  transition: filter 0.4s ease;
+}
+
+.profile-image-container:hover .profile-image {
+  filter: grayscale(0%);
+}
+
+/* --- */
+
+/* Section "GUEV: Notre parcours" (Timeline) */
+#guev-pathway {
+  text-align: center;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #28a745;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+  border-radius: 3px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-content {
+  padding: 20px 30px;
+  background-color: #ffffff;
+  position: relative;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.timeline-item.left .timeline-content {
+  margin-right: 30px;
+}
+
+.timeline-item.right .timeline-content {
+  margin-left: 30px;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+  border-color: #28a745;
+}
+
+.timeline-date {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a7a30;
+  margin-bottom: 10px;
+}
+
+.timeline-item p {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+.timeline-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: -20px;
+  background-color: #28a745;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto;
+  z-index: 1;
+  border: 3px solid #f8f9fa;
+  transition: all 0.3s ease;
 }
 
-/* ========================= NOTRE HISTOIRE ========================= */
-.about-history {
-  padding: 4rem 2rem;
-  background-color: var(--white);
+.timeline-item.left .timeline-icon {
+  left: unset;
+  right: -20px;
+}
+
+.timeline-item.right .timeline-icon {
+  left: -20px;
+  right: unset;
+}
+
+.timeline-item:hover .timeline-icon {
+  background-color: #1a7a30;
+  transform: scale(1.1);
+}
+
+/* --- */
+
+/* Section "Partenaires" */
+.partenaires-section {
+  background-color: #ecfdf5;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1.5rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.logo-grid img {
+  width: 80px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.logo-grid img:hover {
+  transform: scale(1.1);
+}
+
+.carousel-dots {
   text-align: center;
+  margin-top: 2rem;
 }
 
-.about-history .container {
-  max-width: 800px;
-  margin: 0 auto;
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #d1d5db;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
-.about-history h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
+.dot.active {
+  background-color: #10b981;
 }
 
-.about-history p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-color);
+
+/* --- */
+
+/* Responsive Design */
+@media (max-width: 992px) {
+
+  .green-cook-activities .col-md-6,
+  .green-cook-activities .col-lg-3 {
+    flex: 0 0 calc(50% - 15px);
+    max-width: calc(50% - 15px);
+  }
 }
 
-/* ========================= MISSION ET VISION ========================= */
-.about-mission-vision {
-  padding: 4rem 2rem;
-  background-color: var(--light-color);
-  text-align: center;
-}
-
-.about-mission-vision .container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.about-mission-vision h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-}
-
-.about-mission-vision p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-color);
-  max-width: 800px;
-  margin: 0 auto 2rem;
-}
-
-/* ========================= NOTRE ÉQUIPE ========================= */
-.about-team {
-  padding: 4rem 2rem;
-  background-color: var(--white);
-  text-align: center;
-}
-
-.about-team .container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.about-team h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-}
-
-.about-team p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-color);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* ========================= RÉSPONSIVE ========================= */
 @media (max-width: 768px) {
-  .about-hero h1 {
-    font-size: 2.2rem;
+
+  .green-cook-activities .col-md-6,
+  .green-cook-activities .col-lg-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
-  .about-history h2,
-  .about-mission-vision h2,
-  .about-team h2 {
-    font-size: 2rem;
+
+  .section-guev .row {
+    flex-direction: column-reverse;
   }
-  .about-hero p,
-  .about-history p,
-  .about-mission-vision p,
-  .about-team p {
-    font-size: 1rem;
+
+  .section-guev .col-md-5,
+  .section-guev .col-md-7 {
+    width: 100%;
+  }
+
+  .section-guev img.full-image {
+    margin-top: 30px;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
   }
 }

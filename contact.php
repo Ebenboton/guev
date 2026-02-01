@@ -22,9 +22,9 @@ require_once 'config/db.php';
         <section class="contact-combined">
             <div class="contact-info">
                 <h2>Nos Coordonnées</h2>
-                <p><strong>Adresse :</strong> 123 Rue Exemple, 75000 Paris, France</p>
-                <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
-                <p><strong>Email :</strong> contact@guev.com</p>
+                <p><strong>Adresse :</strong> Bénin - Porto-Novo</p>
+                <p><strong>Téléphone :</strong> +229 0166599476 / 0197675039</p>
+                <p><strong>Email :</strong> greencookfestguevgreentech.com</p>
                 <p><strong>Horaires :</strong> Du lundi au vendredi, 9h00 - 18h00</p>
             </div>
 

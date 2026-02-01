@@ -22,7 +22,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin']['role'] !== 'admin') {
 </head>
 <body>
     <?php include '../includes/header.php'; ?>
-    <?php include '../includes/menu.php'; ?>
+    
 
     <main class="admin-content">
         <div class="container">

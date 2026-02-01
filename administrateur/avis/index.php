@@ -26,7 +26,7 @@ $result = $conn->query($query);
 </head>
 <body>
     <?php include '../includes/header.php'; ?>
-    <?php //include '../includes/menus.php'; ?>
+    <?php //include '../includes/menu.php'; ?>
 
     <main class="admin-content">
         <div class="container">

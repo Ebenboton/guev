@@ -42,7 +42,7 @@ $produit = $result->fetch_assoc();
 </head>
 <body>
     <?php include '../includes/header.php'; ?>
-    <?php include '../includes/menus.php'; ?>
+    
 
     <main class="admin-content">
         <div class="container">

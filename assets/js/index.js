@@ -108,32 +108,6 @@ function setupSlider() {
     startAutoPlay();
 }
 
-// Animation pour les chiffres clés
-function setupCounterAnimation() {
-    function animateNumbers() {
-        document.querySelectorAll('.number').forEach(element => {
-            const target = parseInt(element.getAttribute('data-count'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-            
-            const interval = setInterval(() => {
-                current += step;
-                element.textContent = Math.floor(current);
-                if (current >= target) clearInterval(interval);
-            }, 16);
-        });
-    }
-    
-    const keyFiguresSection = document.querySelector('.key-figures');
-    if (keyFiguresSection) {
-        new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                animateNumbers();
-            }
-        }, { threshold: 0.5 }).observe(keyFiguresSection);
-    }
-}
 
 // Animation au scroll pour les articles
 function setupArticleAnimations() {
