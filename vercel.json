@@ -1,5 +1,6 @@
 {
-  "buildCommand": "composer install --no-dev --optimize-autoloader --ignore-platform-reqs",
+  "buildCommand": null,
+  "installCommand": null,
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.7.3"
